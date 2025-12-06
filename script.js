@@ -17,7 +17,7 @@ function handleResize() {
             change = true;
         }
         if (change) {
-            p.innerHTML = `${originalText}<span>${suffixText}</span>`;
+            p.innerHTML = `${originalText}<span class="read-more">${suffixText}</span>`;
         }
     });
 }

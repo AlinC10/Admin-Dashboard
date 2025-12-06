@@ -46,7 +46,7 @@ p {
     text-align: justify;
 }
 
-span {
+.read-more {
     font-size: 1.3rem;
     font-weight: 700;
     display: inline;
