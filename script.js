@@ -38,7 +38,7 @@ triggerBtn.addEventListener("click", () => {
 
 // close menu if user click outside
 document.addEventListener("click", (e) => {
-    if(menu.classList.contains("active") && !menu.contains(e.target) && e.target !== triggerBtn) {
+    if(menu.classList.contains("active") && !menu.contains(e.target) && !triggerBtn.contains(e.target)) {
         menu.classList.remove("active");
         mobileContainer.classList.remove("is-open");
     }
