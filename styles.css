@@ -203,10 +203,14 @@ input[type="search"] {
     filter: none;
 }
 
-.buttons {
+.desktop {
     display: flex;
     align-items: center;
     gap: 17px;
+}
+
+.mobile {
+    display: none;
 }
 
 button {
@@ -363,7 +367,6 @@ h4 {
     padding-bottom: 10px;
 }
 
-
 @media (max-width: 900px) {
     .container {
         grid-template-columns: 50px 1fr;
@@ -373,7 +376,7 @@ h4 {
         padding-left: 0px;
         align-items: center;
     }
-    
+
     .sidebar .row {
         display: block;
     }
@@ -385,5 +388,84 @@ h4 {
 
     .sidebar ul {
         margin-left: 0px;
+    }
+}
+
+@media (max-width: 700px) {
+    .right .box {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .desktop {
+        display: none;
+    }
+
+    .mobile {
+        display: block;
+        position: relative;
+    }
+
+    .dropdown-menu {
+        position: absolute;
+        top: 120%;
+        left: 0;
+        background-color: var(--sidebar-color);
+        min-width: 80px;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(255, 30, 30, 0.2);
+        padding: 8px 0;
+        z-index: 100;
+
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY((-10px));
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }   
+    
+    .dropdown-menu a {
+        padding: 10px 16px;
+        color: var(--body-color);
+        transition: background-color 0.2s;
+        font-size: 1.4rem;
+        font-weight: 600;
+    }
+
+    .dropdown-menu a:hover {
+        filter: grayscale(20%);
+    }
+
+    .dropdown-menu.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    button span {
+        transition: transform 0.3s;
+    }
+
+    .mobile.is-open span {
+        transform: rotate(180deg);
+    }
+}
+
+@media (max-width: 500px) {
+    .left {
+        grid-column: 1/ -1;
+    }
+
+    .right {
+        grid-column: 1/ -1;
+        grid-row: 2/ 3;
+    }
+
+    .right > div:first-child {
+        order: 2;
+    }
+
+    .header {
+        padding-left: 15px;
+        padding-right: 15px;
     }
 }

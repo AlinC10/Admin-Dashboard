@@ -25,3 +25,21 @@ function handleResize() {
 window.addEventListener("resize", handleResize);
 
 handleResize(); // if user enters from mobile
+
+
+const triggerBtn = document.querySelector(".mobile button");
+const menu = document.querySelector(".dropdown-menu");
+const mobileContainer = document.querySelector(".mobile");
+
+triggerBtn.addEventListener("click", () => {
+    menu.classList.toggle("active");
+    mobileContainer.classList.toggle("is-open");
+});
+
+// close menu if user click outside
+document.addEventListener("click", (e) => {
+    if(menu.classList.contains("active") && !menu.contains(e.target) && e.target !== triggerBtn) {
+        menu.classList.remove("active");
+        mobileContainer.classList.remove("is-open");
+    }
+});
